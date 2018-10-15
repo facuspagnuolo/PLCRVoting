@@ -1,0 +1,8 @@
+{
+  "zosversion": "2",
+  "name": "plcr-voting-eth",
+  "version": "1.0.0",
+  "contracts": {
+    "PLCRVoting": "PLCRVoting"
+  }
+}

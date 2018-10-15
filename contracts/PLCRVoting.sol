@@ -3,12 +3,13 @@ import "tokens/eip20/EIP20Interface.sol";
 import "dll/DLL.sol";
 import "attrstore/AttributeStore.sol";
 import "zeppelin/math/SafeMath.sol";
+import "zos-lib/contracts/Initializable.sol";
 
 /**
 @title Partial-Lock-Commit-Reveal Voting scheme with ERC20 tokens
 @author Team: Aspyn Palatnick, Cem Ozer, Yorke Rhodes
 */
-contract PLCRVoting {
+contract PLCRVoting is Initializable {
 
     // ============
     // EVENTS:
@@ -59,7 +60,7 @@ contract PLCRVoting {
     @dev Initializer. Can only be called once.
     @param _token The address where the ERC20 token contract is deployed
     */
-    function init(address _token) public {
+    function initialize(address _token) public initializer {
         require(_token != address(0) && address(token) == address(0));
 
         token = EIP20Interface(_token);
