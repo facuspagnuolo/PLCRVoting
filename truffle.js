@@ -14,17 +14,33 @@ if (fs.existsSync('secrets.json')) {
 
 module.exports = {
   networks: {
-    rinkeby: {
-      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io'),
+    local: {
+      host: 'localhost',
+      port: 8545,
       network_id: '*',
-      gas: 6000000,
-      gasPrice: 20000000000,
+      gas: 5000000,
+      gasPrice: 2e9, // 2 Gwei
     },
     ropsten: {
-      provider: new HDWalletProvider(mnemonic, 'https://ropsten.infura.io'),
-      network_id: '*',
-      gas: 4700000,
-      gasPrice: 20000000000,
+      host: 'localhost',
+      port: 8565,
+      network_id: 3,
+      gas: 500000,
+      gasPrice: 10e9, // 10 Gwei
+    },
+    rinkeby: {
+      host: 'localhost',
+      port: 8565,
+      network_id: 4,
+      gas: 500000,
+      gasPrice: 10e9, // 10 Gwei
+    },
+    kovan: {
+      host: 'localhost',
+      port: 8555,
+      network_id: 42,
+      gas: 500000,
+      gasPrice: 10e9, // 10 Gwei
     },
     debug: {
       host: 'localhost',
